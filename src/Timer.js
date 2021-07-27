@@ -1,4 +1,4 @@
-import { useState, useEffect, memo} from "react";
+import { useState, memo} from "react";
 import { Timer } from 'react-countdown-clock-timer';
 
 const TimerForm = memo((props) => {

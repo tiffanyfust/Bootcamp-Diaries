@@ -3,7 +3,7 @@ import logo from './assets/bootcampDiariesOutlined.png';
 import Prompts from './Prompts';
 import IconSet from './IconSet';
 import TimerForm from './Timer';
-import {useEffect, useState, useRef} from 'react';
+import {useRef} from 'react';
 import Textarea from './Textarea';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Footer from './Footer';
@@ -11,9 +11,6 @@ import Footer from './Footer';
 
 
 function App() {
-
-const [finished, setFinished] = useState('');
-
 
 // sets buttonClicked to true when Timer Form button is clicked
   const buttonClicked = useRef(false);
