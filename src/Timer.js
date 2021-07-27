@@ -1,27 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect, memo} from "react";
 import { Timer } from 'react-countdown-clock-timer';
 
+const TimerForm = memo((props) => {
+    const [timerLength, setTimerLength] = useState(0);
 
-const Timers = (props) => {
+    //gets value of selected option from TimeForm and prevents default behaviour of button
+    const handleSubmit = (e, value) => {
+        e.preventDefault();
+        setTimerLength(parseInt(value));
+    }
 
-// gets the value of selected option from TimeForm
-    const timerLength = parseInt(props.userChoice);
-
-// countdown that uses user selected value
-    return (
-    <div className="timerCount">
-        <Timer
-        durationInSeconds={timerLength}
-        formatted={true}
-        isPaused={false}
-        showPauseButton={false}
-        showResetButton={false}/>
-    </div>
-    )
-}
-
-// Form to let users select how long of a timer they want
-const TimeForm = (props) => {
     const [timeAmount, setTimeAmount] = useState("");
 
     const updateTime = (e) => {
@@ -29,7 +17,8 @@ const TimeForm = (props) => {
     }
 
     return (
-        <form className="timeForm" onSubmit = {(e) => props.handleSubmit(e, timeAmount)}>
+        <>
+        <form className="timeForm" onSubmit = {(e) => handleSubmit(e, timeAmount)}>
             <select required id="timeSelect" name="timeSelect"  value={timeAmount} onChange={updateTime}>
                 <option value="" disabled>Select option</option>
                 <option value="600">10 minutes</option>
@@ -39,8 +28,19 @@ const TimeForm = (props) => {
             </select>
             <button className="dropBtn" type="submit" name="submit" value="submit" onClick={props.startTiming()}>Start Timer</button>
         </form>
-    )
-}
 
-export default Timers;
-export {TimeForm};
+        <div className="timerCount">
+        <Timer
+        durationInSeconds={timerLength}
+        formatted={true}
+        isPaused={false}
+        showPauseButton={false}
+        showResetButton={false}/>
+        </div>
+        </>
+    )
+
+})
+
+
+export default TimerForm;
