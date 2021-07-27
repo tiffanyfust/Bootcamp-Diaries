@@ -69,13 +69,15 @@ const Prompts = () => {
         <button type="submit" onClick={handlePromptClick}>Share Prompt</button>
         </form>
         <div className="promptsRequest">
-          <
-          FontAwesomeIcon 
-          className='icons sync' 
-          icon={faSyncAlt} 
-          onClick={randomizer} 
-          title="Looking for inspiration? Click for a writing prompt"
-          />
+          <div className="icons">
+            <
+            FontAwesomeIcon
+            className='icons sync'
+            icon={faSyncAlt}
+            onClick={randomizer}
+            title="Looking for inspiration? Click for a writing prompt"
+            />
+          </div>
 
           <p>{displayPrompt}   &nbsp; </p>
 

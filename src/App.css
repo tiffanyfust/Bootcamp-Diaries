@@ -140,6 +140,7 @@ textarea:placeholder-shown {
 .icons :focus {
     color: #78CAD2;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .sync {
