@@ -70,17 +70,16 @@ const Prompts = () => {
         </form>
         <div className="promptsRequest">
           <div className="icons">
-            <
-            FontAwesomeIcon
+            <FontAwesomeIcon
             className='icons sync'
+            tabIndex="0"
             icon={faSyncAlt}
             onClick={randomizer}
+            onKeyPress={(e) => {if (e.key === 'Enter') {randomizer()}}}
             title="Looking for inspiration? Click for a writing prompt"
             />
           </div>
-
           <p>{displayPrompt}   &nbsp; </p>
-
         </div>
     </div>
     )

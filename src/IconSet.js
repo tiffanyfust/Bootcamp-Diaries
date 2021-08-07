@@ -11,6 +11,16 @@ const IconSet = (props) => {
     element.classList.toggle("darkMode");
   }
 
+  const toggleMenu = () => {
+    const checkbox = document.querySelector('#toggleMenu');
+    if (checkbox.checked) {
+      checkbox.checked = false;
+    } else {
+      checkbox.checked = true;
+    }
+    
+  }
+
 
 // pushes user textarea input to firebase when save icon is clicked
   const pushToFirebase = () => {
@@ -24,8 +34,8 @@ const IconSet = (props) => {
 
   return (
     <div>
-      <label htmlFor="toggleMenu">✍️ Toolkit</label>
-      <input type="checkbox" id="toggleMenu" name="toggleMenu" />
+      <label htmlFor="toggleMenu" tabIndex="0"  onKeyPress={(e) => {if (e.key === 'Enter') {toggleMenu()}}}>✍️ Toolkit</label>
+      <input type="checkbox" id="toggleMenu" name="toggleMenu"/>
       <div className="icons slidingIcons">
         <Link to={`/`}>
           <FontAwesomeIcon className='page fa-rotate-270' size='2x' icon={faFile} title='Hide Toolbar' />
